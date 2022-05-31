@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Radio Button</title>
+</head>
+
+<body>
+    <div id="group">
+    </div>
+
+    <p id="output"></p>
+    <input type="text" name="textbox" id="textbox" readonly="true" />
+    <script>
+        const sizes = ['Перший', 'Другий', 'Третій', 'Четвертий', "П'ятий" ];
+
+           
+        const group = document.querySelector("#group");
+        group.innerHTML = sizes.map((size) => `<div>
+                <input type="radio" name="size" value="${size}" id="${size}">
+                 <label for="${size}">${size}</label>
+            </div>`).join(' ');
+        
+       
+        const radioButtons = document.querySelectorAll('input[name="size"]');
+        for(const radioButton of radioButtons){
+            radioButton.addEventListener('change', showSelected);
+        }        
+        
+        function showSelected(e) {
+            console.log(e);
+            if (this.checked) {
+                document.querySelector('#output').innerText = `Ви вибрали ${this.value}`;
+                var textbox = document.getElementById('textbox');
+                textbox.value = this.value;
+            }
+        }
+    </script>
+</body>
+
+</html>

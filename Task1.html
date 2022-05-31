@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task1</title>
+</head>
+<body>
+    <input type="text" id="message">
+
+    <script>
+        let textBox = document.getElementById('message');
+        textBox.addEventListener('keydown', (event) => {
+            document.write(`Клавіша=${event.key},код=${event.code}`);
+
+        });
+    </script>
+</body>
+</html>
